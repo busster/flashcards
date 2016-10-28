@@ -3,3 +3,9 @@
 <h3>Question:</h3>
 
 <p><%= @card.question %></p>
+
+<form action="/decks/<%= @deck.id %>/cards/<%= @card.id %>" method="post">
+  <label for="answer">Answer:</label>
+  <input type="text" name="answer" placeholder="Answer"><br>
+  <input type="submit" value="If your answer is a coconut, will the swallow carry it?">
+</form>
