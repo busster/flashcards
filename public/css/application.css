@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -31,3 +31,24 @@ li a:hover {
   border: 1px dotted black;
 
 }
+
+header {
+    margin-left: 100px;
+}
+body  {
+    background-image: url("http://img.wallpaperfolder.com/f/536CEEF84988/monty-python-dump-album.jpg");
+    background-color: #cccccc;
+}
+
+h1 {
+    color: white;
+}
+
+.forms {
+    color: white;
+}
+
+.button {
+    background-color: black;
+}
+
