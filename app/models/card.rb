@@ -7,8 +7,12 @@ class Card < ActiveRecord::Base
     self.correct = true
   end
 
-  # def already_correct?
-  #   self.correct
-  # end
+  def correct?(answer)
+    if answer == self.answer
+      true
+    else
+      false
+    end
+  end
 
 end
