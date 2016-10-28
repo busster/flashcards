@@ -1,4 +1,4 @@
-<h1> <%= @deck.topic %> </h1>
+<u class = "u"><h1> <%= @deck.topic %> </h1></u>
 
 <h3>Question:</h3>
 
@@ -7,5 +7,6 @@
 <form action="/decks/<%= @deck.id %>/cards/<%= @card.id %>" method="post">
   <label for="answer">Answer:</label>
   <input type="text" name="answer" placeholder="Answer"><br>
+  <br>
   <input type="submit" value="If your answer is a coconut, will the swallow carry it?">
 </form>
