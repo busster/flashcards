@@ -4,6 +4,7 @@ class CreateRounds < ActiveRecord::Migration
       t.integer :total_guesses
       t.integer :first_try
       t.integer :user_id
+      t.integer :deck_id
 
       t.timestamps(null: false)
     end
