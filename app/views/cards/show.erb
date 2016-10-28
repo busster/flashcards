@@ -4,6 +4,7 @@
 
 <p><%= @card.question %></p>
 
+
 <form action="/decks/<%= @deck.id %>/cards/<%= @card.id %>" method="post">
   <label for="answer">Answer:</label>
   <input type="text" name="answer" placeholder="Answer"><br>
