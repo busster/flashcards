@@ -1,7 +1,7 @@
 <div class="container">
   <%= erb :"_errors", locals: {errors: @errors} %>
 
-  <form action="/users" method="POST">
+  <form action="/users" class="forms" method="POST">
     <label for="name">Name</label><br>
     <input type="text" name="user[name]" placeholder="name"><hr>
     <label for="email">Email</label><br>
@@ -10,7 +10,7 @@
     <input type="text" name="user[username]" placeholder="username"><hr>
     <label for="password">Password</label><br>
     <input type="password" name="user[password]" placeholder="password"><hr>
-    <input type="submit" value="Register">
+    <input type="submit" class="button" value="Register">
   </form>
 
 </div>

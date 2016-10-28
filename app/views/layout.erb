@@ -18,6 +18,7 @@
   <title></title>
 </head>
 <body>
+
   <ul>
   <li><a class="active" href="/decks">View all decks</a></li>
   <% if logged_in?%>
@@ -34,6 +35,14 @@
   <%end%>
 
 </ul>
+ <header>
+
+    <h1>
+      Trivia in Your General Direction
+    </h1>
+  </header>
+
   <%= yield %>
 </body>
+
 </html>
