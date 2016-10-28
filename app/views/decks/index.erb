@@ -7,7 +7,7 @@
 
   <ul>
   <% @decks.each do |deck| %>
-    <li><%= deck.topic %></li>
+    <li><a href="decks/<%= deck.id %>/cards/<%= deck.cards.sample.id %>"><%= deck.topic %></a></li>
   <% end %>
   </ul>
 
