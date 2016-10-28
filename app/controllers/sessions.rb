@@ -8,7 +8,7 @@ post '/sessions' do
       session[:user_id] = @user.id
       redirect '/decks'
     else
-      @message = "Invalid username or password. Please try again."
+      @errors = ["Invalid username or password. Please try again."]
       erb :'sessions/new'
     end
 end
