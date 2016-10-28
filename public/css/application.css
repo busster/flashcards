@@ -11,6 +11,11 @@ li {
     float: left;
 }
 
+.decks {
+    float: left;
+
+}
+
 li a {
     display: block;
     color: white;
