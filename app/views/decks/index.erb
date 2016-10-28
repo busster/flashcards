@@ -1,11 +1,13 @@
 <div class="container">
   <h1>Flashcard Trivia!</h1>
 
-  <a href="/users/new">Register to play here!</a>
+  <a href="/users/new">Register to play here!</a><hr>
+  <a href="/sessions/new">Login here!</a>
+
 
   <ul>
   <% @decks.each do |deck| %>
-    <li><%= deck %></li>
+    <li><%= deck.topic %></li>
   <% end %>
   </ul>
 
