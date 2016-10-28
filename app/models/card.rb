@@ -7,4 +7,8 @@ class Card < ActiveRecord::Base
     self.correct = true
   end
 
+  # def already_correct?
+  #   self.correct
+  # end
+
 end
