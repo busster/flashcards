@@ -47,6 +47,9 @@ h1 {
 .forms {
     color: white;
 }
+.formfield {
+    color: black;
+}
 
 .button {
     background-color: black;
