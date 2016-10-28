@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ul {
     list-style-type: none;
     margin: 0;
@@ -21,4 +22,12 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;
+}
+
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+
 }
