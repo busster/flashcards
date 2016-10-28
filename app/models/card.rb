@@ -4,11 +4,11 @@ class Card < ActiveRecord::Base
   validates :question, :answer, :deck_id, presence: true
 
   def correct_answer
-    self.correct = true
+    self.update_attributes(correct: true)
   end
 
   def correct?(answer)
-    if answer == self.answer
+    if answer.downcase == self.answer.downcase
       true
     else
       false
