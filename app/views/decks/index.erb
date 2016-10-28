@@ -1,5 +1,12 @@
 <div class="container">
-  <h1>flashcards!</h1>
+  <h1>Flashcard Trivia!</h1>
 
   <a href="/users/new">Register to play here!</a>
+
+  <ul>
+  <% @decks.each do |deck| %>
+    <li><%= deck %></li>
+  <% end %>
+  </ul>
+
 </div>
