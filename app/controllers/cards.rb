@@ -34,5 +34,13 @@ post '/decks/:deck_id/cards/:card_id' do
   end
 
 
-  redirect "/decks/:deck_id/cards/#{card.id}"
+  cards = Deck.find_by(id: params[:deck_id]).cards
+  card = cards.where(correct: false).sample
+  if card
+    redirect "/decks/#{params[:deck_id]}/cards/#{card.id}"
+  else
+    Deck.find_by(id: params[:deck_id]).cards.update_all(correct: false, already_guessed: false)
+    redirect "/"
+  end
+
 end
