@@ -1,10 +1,21 @@
 
-  <h1>Flashcard Trivia!</h1>
+  <h2>Wink wink, nudge nudge...</h2>
+
+<!--   <ul class="decks">
+  <% @decks.each do |deck| %>
+    <li><a href="decks/<%= deck.id %>/cards/<%= deck.cards.sample.id %>"> <img src="http://lsc.mit.edu/schedule/2014.2q/poster-montypythonandtheholygrail.jpg" alt="Holy Grail" width="120" height="200"><%= deck.topic %></a></li>
+  <% end %>
+  </ul> -->
 
   <ul class="decks">
-  <% @decks.each do |deck| %>
-    <li><a href="decks/<%= deck.id %>/cards/<%= deck.cards.sample.id %>"><%= deck.topic %></a></li>
-  <% end %>
+  <% @deck1 = Deck.find_by(topic: "Monty Python And The Holy Grail") %>
+  <% @deck2 = Deck.find_by(topic: "Monty Python And The Life of Brian") %>
+  <% @deck3 = Deck.find_by(topic: "Monty Python's The Meaning of Life") %>
+    <li><a href="decks/<%= @deck1.id %>/cards/<%= @deck1.cards.sample.id %>"> <img src="http://lsc.mit.edu/schedule/2014.2q/poster-montypythonandtheholygrail.jpg" alt="Holy Grail" width="160" height="240"></a></li>
+    <li><a href="decks/<%= @deck2.id %>/cards/<%= @deck2.cards.sample.id %>"> <img src="http://lucastheatre.com/wp-content/uploads/2015/08/LifeofBrian-Web1.jpg" alt="Life of Brian" width="160" height="240"></a></li>
+    <li><a href="decks/<%= @deck3.id %>/cards/<%= @deck3.cards.sample.id %>"> <img src="http://cdn-media-1.lifehack.org/wp-content/files/2014/08/monty-pythons-the-meaning-of-life-522dc88f504af.jpg" alt="Meaning of Life" width="160" height="240"></a></li>
   </ul>
+
+
 
 
