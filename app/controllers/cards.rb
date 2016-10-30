@@ -47,6 +47,6 @@ get '/deck/fail' do
   user = User.find_by(id: session[:user_id])
   deck = user.rounds.last.deck
   cards = deck.cards
-  card = cards.where(correct: false).sample
+  card = cards.where(correct: true).sample
   redirect "/decks/#{deck.id}/cards/#{card.id}"
 end
