@@ -3,14 +3,18 @@ get '/decks/:deck_id/cards/:card_id' do
   @deck = Deck.find(params[:deck_id])
   @card = Card.find(params[:card_id])
 
-  if Round.find_by(user_id: current_user.id, deck_id: params[:deck_id]) && @deck.cards.where
-    @round = Round.find_by(user_id: current_user.id, deck_id: params[:deck_id] )
-    erb :'cards/show'
-  else
+  if logged_in?
+    if Round.find_by(user_id: current_user.id, deck_id: params[:deck_id]) && @deck.cards.where
+      @round = Round.find_by(user_id: current_user.id, deck_id: params[:deck_id] )
+      erb :'cards/show'
+    else
       @round = Round.create(user_id: current_user.id, deck_id: params[:deck_id])
       @current_round = current_user.rounds.last
       erb :'cards/show'
-  end
+    end
+  else 
+    erb :"404"
+  end 
 
 end
 
@@ -31,22 +35,14 @@ post '/decks/:deck_id/cards/:card_id' do
     card.already_guessed = true
   end
   cards = Deck.find_by(id: params[:deck_id]).cards
-  next_card = cards.where(correct: false).sample
+  @deck = Deck.find_by(id: params[:deck_id])
+  @next_card = cards.where(correct: false).sample
   if card.correct?(params[:answer]) == false
-    erb :"decks/fail"
-  elsif next_card
-    redirect "/decks/#{params[:deck_id]}/cards/#{next_card.id}"
+    erb :"decks/fail" 
+  elsif card.correct?(params[:answer]) == true && cards.where(correct: false).count != 0
+    erb :"decks/success"
   else
     Deck.find_by(id: params[:deck_id]).cards.update_all(correct: false, already_guessed: false)
-    redirect "/decks/#{params[:deck_id]}/rounds/#{@current_round.id}"
+    redirect "/decks/#{@deck.id}/rounds/#{@current_round.id}"
   end
-
-end
-
-get '/deck/fail' do
-  user = User.find_by(id: session[:user_id])
-  deck = user.rounds.last.deck
-  cards = deck.cards
-  card = cards.where(correct: true).sample
-  redirect "/decks/#{deck.id}/cards/#{card.id}"
 end
